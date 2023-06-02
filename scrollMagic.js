@@ -44,6 +44,8 @@
     .Scene({
         triggerElement: ".hike-exp" //Area,
         triggerHook: 0.5 //threashold
+        //To make it not despair
+        reverse: false
     })
     .addIndicators(
         //colorStart
