@@ -27,7 +27,9 @@ body {
  align-items: center;
  justify-content: space-between;
  color: white;
- padding: 2rem 0rem;
+ padding: 2rem 9rem;
+ position: relative;
+ z-index: 20;
 }
 
 .line1,
@@ -127,7 +129,6 @@ body {
 
  /*Animated to expand */
  clip-path: circle(50px at 100% -10%);
- -webkit-clip-path: circle(50px at 100% -10%);
 }
 
 .burger {

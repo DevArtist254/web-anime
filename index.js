@@ -68,6 +68,10 @@ function animateSlides() {
 
 let mouse = document.querySelector(".cursor")
 let mouseTxt = mouse.querySelector("span")
+let navBar = document.querySelector(".nav-bar")
+let budger = document.querySelector(".burger")
+let line1 = document.querySelector(".line1")
+let line2 = document.querySelector(".line2")
 
 function cursor(e) {
  mouse.style.top = e.pageY + "px"
@@ -95,6 +99,27 @@ function activeCursor(e) {
  }
 }
 
+function toggleNavMenu(e) {
+ if (!e.target.classList.contains("active")) {
+  gsap.to(line1, 0.5, {rotate: "45%", y: 5, background: "black"})
+  gsap.to(line2, 0.5, {rotate: "-45%", y: -5, background: "black"})
+  gsap.to(navBar, 1, {
+   clipPath: "circle(2500px at 100% -10%)",
+  })
+  gsap.to("#logo", 1, {color: "black"})
+  e.target.classList.add("active")
+ } else {
+  gsap.to(line1, 0.5, {rotate: "0", y: 0, background: "white"})
+  gsap.to(line2, 0.5, {rotate: "0", y: 0, background: "white"})
+  gsap.to(navBar, 1, {
+   clipPath: "circle(50px at 100% -10%)",
+  })
+  gsap.to("#logo", 1, {color: "white"})
+  e.target.classList.remove("active")
+ }
+}
+
+budger.addEventListener("click", toggleNavMenu)
 window.addEventListener("mousemove", cursor)
 window.addEventListener("mouseover", activeCursor)
 
